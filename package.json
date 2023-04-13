@@ -5,8 +5,8 @@
   "main": "books.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./books.js",
-    "lint": "eslint ./"
+    "start": "nodemon ./src/books.js",
+    "lint": "eslint ./src"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +16,8 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.27.5",
     "nodemon": "^2.0.22"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^21.3.1"
   }
 }
