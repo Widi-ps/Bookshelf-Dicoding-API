@@ -1,1 +1,3 @@
-console.log('Hallo kita akan membuat Bookshelf API');
+const books = [];
+
+module.exports = books;
