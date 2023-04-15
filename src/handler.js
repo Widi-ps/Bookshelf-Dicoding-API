@@ -19,4 +19,18 @@ const addBook = (req, h) => {
     response.code(400);
     return response;
   }
+
+  if (readPage > pageCount) {
+    const response = h.response({
+      status: 'fail',
+      message: 'Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount',
+    });
+
+    response.code(400);
+    return response;
+  }
+
+  
 };
+
+module.exports = { addBook }
