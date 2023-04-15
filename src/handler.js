@@ -1,4 +1,7 @@
-const addBook = (req, h) => {
+const { nanoid } = require('nanoid');
+const books = require('./books');
+
+const addBookHandler = (req, h) => {
   const {
     name,
     year,
@@ -30,7 +33,41 @@ const addBook = (req, h) => {
     return response;
   }
 
-  
+  const id = nanoid(16);
+  const insertedAt = new Date().toISOString();
+  const updatedAt = insertedAt;
+  const finished = pageCount === readPage;
+
+  const newBooks = {
+    id,
+    name,
+    year,
+    author,
+    summary,
+    publisher,
+    pageCount,
+    readPage,
+    finished,
+    reading,
+    insertedAt,
+    updatedAt,
+  };
+
+  books.push(newBooks);
+
+  const isSuccess = books.filter((book) => book.id === id).length > 0;
+
+  if (isSuccess) {
+    const response = h.response({
+      status: 'success',
+      message: 'Buku berhasil ditambahkan',
+      data: {
+        bookId: id,
+      },
+    });
+    response.code(201);
+    return response;
+  }
 };
 
-module.exports = { addBook }
+module.exports = { addBookHandler };
