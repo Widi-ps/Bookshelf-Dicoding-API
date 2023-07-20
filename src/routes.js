@@ -25,8 +25,13 @@ const routes = [
   {
     method: 'PUT',
     path: '/books/{id}',
-    handler: deleteBooksByIdHandler,
+    handler: updateBookById,
   },
+  {
+    method: 'DELETE',
+    path: '/books/{id}',
+    handler: deleteBooksByIdHandler,
+  }
 ];
 
 module.exports = routes;

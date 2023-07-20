@@ -116,10 +116,10 @@ const getBookById = (req, res) => {
 }
 
 const updateBookById = (req, res) => {
-  const { bookId } = req.params;
+  const { id } = req.params;
   const { name, year, author, summary, publisher, pageCount, readPage, reading } = req.payload;
 
-  const bookIndex = books.findIndex((book) => book.id === bookId);
+  const bookIndex = books.findIndex((book) => book.id === id);
 
   if (bookIndex === -1) {
     return res.response({
