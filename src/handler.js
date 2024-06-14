@@ -112,7 +112,7 @@ const getBookById = (req, res) => {
       data: {
           book: book
       }
-  }).code(200);
+  });
 }
 
 const updateBookById = (req, res) => {
